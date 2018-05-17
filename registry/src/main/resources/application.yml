@@ -1,0 +1,20 @@
+#服务端口号
+server:
+  port: 9876
+
+#配置Eureka
+eureka:
+  client:
+    #是否将自己注册Eureka注册中心
+    register-with-eureka: false
+    #是否从Eureka中获取注册信息
+    fetch-registry: false
+spring:
+  application:
+    name: registry
+security:
+  basic:
+    enabled: true
+  user:
+    name: ${REGISTRY_SERVER_USERNAME}
+    password: ${REGISTRY_SERVER_PASSWORD}

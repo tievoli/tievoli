@@ -1,0 +1,27 @@
+server:
+  port: 1234
+eureka:
+  client:
+    service-url:
+      defaultZone: http://${REGISTRY_SERVER_USERNAME}:${REGISTRY_SERVER_PASSWORD}@registry:9876/eureka/
+    healthcheck:
+      enabled: true
+  instance:
+    hostname: localhost
+spring:
+  application:
+    name: config
+  cloud:
+    config:
+      server:
+        git:
+          username: ${TIEVOLI_SERVER_USERNAME}
+          password: ${TIEVOLI_SERVER_PASSWORD}
+          uri: https://github.com/tievoli/tievoli_config.git
+          strict-host-key-checking: false
+security:
+  basic:
+    enabled: true
+  user:
+    name: ${CONFIG_SERVER_USERNAME}
+    password: ${CONFIG_SERVER_PASSWORD}
